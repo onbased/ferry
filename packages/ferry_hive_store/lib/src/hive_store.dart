@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:rxdart/rxdart.dart';
-import 'package:collection/collection.dart';
 import 'package:hive/hive.dart';
 import 'package:ferry_store/ferry_store.dart';
 
@@ -17,13 +16,7 @@ class HiveStore extends Store {
       .watch(key: dataId)
       .map<Map<String, dynamic>?>(
           (event) => event.value == null ? null : Map.from(event.value))
-      .startWith(get(dataId))
-      .distinct(
-        (prev, next) => const DeepCollectionEquality().equals(
-          prev,
-          next,
-        ),
-      );
+      .startWith(get(dataId));
 
   @override
   Map<String, dynamic>? get(String dataId) =>
