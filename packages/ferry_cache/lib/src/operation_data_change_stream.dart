@@ -73,14 +73,7 @@ Stream<Set<String>> operationDataChangeStream<TData, TVars>(
       );
     }
 
-    return stream
-        .distinct(
-          (prev, next) => const DeepCollectionEquality().equals(
-            prev,
-            next,
-          ),
-        )
-        .doOnData((_) => changed.add(dataId));
+    return stream.doOnData((_) => changed.add(dataId));
   });
 
   return CombineLatestStream<Map<String, dynamic>?, Set<String>>(

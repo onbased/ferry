@@ -14,12 +14,7 @@ class MemoryStore extends Store {
 
   @override
   Stream<Map<String, dynamic>?> watch(String dataId) =>
-      _valueStream.map((data) => data[dataId]).distinct(
-            (prev, next) => const DeepCollectionEquality().equals(
-              prev,
-              next,
-            ),
-          );
+      _valueStream.map((data) => data[dataId]);
 
   @override
   Map<String, dynamic>? get(String dataId) => _valueStream.value[dataId];
