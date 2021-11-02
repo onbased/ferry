@@ -35,8 +35,11 @@ class RequestControllerTypedLink extends TypedLink {
 
     return requestController.stream
         .whereType<OperationRequest<TData, TVars>>()
-        .where((req) =>
-            req.requestId != null && req.requestId == request.requestId)
+        .where(
+          (req) => req.requestId == null
+              ? req == request
+              : req.requestId == request.requestId,
+        )
         .doOnData(
       (_) {
         /// Temporarily add a listener so that [prev] doesn't shut down when
