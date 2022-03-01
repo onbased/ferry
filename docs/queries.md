@@ -6,8 +6,8 @@ title: Queries
 Executing a GraphQL Query with Ferry is as easy as:
 
 1. Creating an instance of the [generated](codegen.md) request class for your Query.
-2. Call `Client.request()` with your request.
-3. Listen to the returned Stream.
+2. Calling `Client.request()` with your request instance.
+3. Listening to the returned Stream.
 
 ## Creating a Request
 
@@ -36,7 +36,7 @@ final reviewsReq = GReviewsReq(
 
 :::note
 
-Notice how we can chain-assign nested values. Ferry's generated classes are based on `built_value` which uses the Builder Pattern.
+Notice how we can chain-assign nested values. Ferry's generated classes are based on [https://pub.dev/packages/built_value](built_value) which uses the Builder Pattern.
 
 Check out [this post](https://medium.com/dartlang/darts-built-value-for-immutable-object-models-83e2497922d4) for more information on `built_value` classes and how to use them.
 
