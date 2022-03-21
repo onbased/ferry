@@ -22,15 +22,36 @@ Object? normalizeNode({
   if (dataForNode == null) return null;
 
   if (dataForNode is List) {
-    return dataForNode
-        .map((data) => normalizeNode(
-              selectionSet: selectionSet,
-              dataForNode: data,
-              existingNormalizedData: null,
-              config: config,
-              write: write,
-            ))
-        .toList();
+    final mergedList = [];
+    final existingData = {
+      if (existingNormalizedData is List)
+        for (final d in existingNormalizedData)
+          if (d is Map)
+            resolveDataId(
+              data: d.cast<String, dynamic>(),
+              typePolicies: config.typePolicies,
+              dataIdFromObject: config.dataIdFromObject,
+            ): d,
+    };
+
+    for (final d in dataForNode) {
+      final dataId = resolveDataId(
+        data: d,
+        typePolicies: config.typePolicies,
+        dataIdFromObject: config.dataIdFromObject,
+      );
+      final mergedData = normalizeNode(
+        selectionSet: selectionSet,
+        dataForNode: d,
+        existingNormalizedData: existingData[dataId],
+        config: config,
+        write: write,
+      );
+
+      mergedList.add(mergedData);
+    }
+
+    return mergedList;
   }
 
   // If this is a leaf node, return the data
