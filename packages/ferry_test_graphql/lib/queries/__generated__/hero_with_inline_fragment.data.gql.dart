@@ -1,5 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_test_graphql/schema/__generated__/serializers.gql.dart'
@@ -38,7 +39,7 @@ abstract class GHeroForEpisodeData_hero {
       _i2.InlineFragmentSerializer<GHeroForEpisodeData_hero>(
           'GHeroForEpisodeData_hero',
           GHeroForEpisodeData_hero__base,
-          [GHeroForEpisodeData_hero__asDroid]);
+          {'Droid': GHeroForEpisodeData_hero__asDroid});
   Map<String, dynamic> toJson() =>
       (_i1.serializers.serializeWith(GHeroForEpisodeData_hero.serializer, this)
           as Map<String, dynamic>);

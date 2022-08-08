@@ -59,7 +59,7 @@ Object? normalizeNode({
 
   if (dataForNode is Map) {
     final dataId = resolveDataId(
-      data: dataForNode as Map<String, dynamic>,
+      data: Map<String, dynamic>.from(dataForNode),
       typePolicies: config.typePolicies,
       dataIdFromObject: config.dataIdFromObject,
     );
@@ -132,6 +132,8 @@ Object? normalizeNode({
         }
       })
     };
+
+    if (dataId != null) existingNormalizedData = config.read(dataId);
 
     final mergedData = deepMerge(
       Map.from(existingNormalizedData as Map<dynamic, dynamic>? ?? {}),

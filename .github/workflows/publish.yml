@@ -16,7 +16,7 @@ jobs:
       - name: Activate melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          pub global activate melos
+          dart pub global activate melos
       - name: Bootstrap melos
         run: melos bs
       - name: Configure git user
@@ -27,10 +27,10 @@ jobs:
       - name: Setup Pub Credentials
         shell: bash
         env:
-          PUB_ACCESS_TOKEN: ${{ secrets.PUB_ACCESS_TOKEN }}
-          PUB_REFRESH_TOKEN: ${{ secrets.PUB_REFRESH_TOKEN }}
+          CREDENTIALS_JSON: ${{ secrets.CREDENTIALS_JSON }}
         run: |
-          sh ./.github/workflows/scripts/pub_login.sh
+          mkdir -p $XDG_CONFIG_HOME/dart/
+          echo $CREDENTIALS_JSON > $XDG_CONFIG_HOME/dart/pub-credentials.json
       - run: melos publish --yes --dry-run --ignore="*pokemon*"
       - run: melos publish --yes --no-dry-run --ignore="*pokemon*"
       - run: git push

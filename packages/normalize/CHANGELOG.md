@@ -1,3 +1,27 @@
+## 0.7.0
+
+
+ - **FIX**: Streamline typename handling #359
+
+
+## 0.6.1
+
+ - **FIX**: Preserve backwards compatibility with dataIdFromObject (#368).
+ - **FIX**: Streamline typename handling (#359).
+ - **FIX**: Streamline typename handling.
+
+## 0.7.0-dev.1
+
+ - **FIX**: Streamline typename handling (#359).
+ - **FIX**: Streamline typename handling.
+
+## 0.6.0+1
+
+ - **TEST**: add fragment variable test.
+ - **FIX**: Broken fragment spreads.
+ - **CHORE**: publish packages.
+ - **CHORE**: publish packages.
+
 ## 0.6.0
 
 - Require possible types map to correctly disambiguate fragments

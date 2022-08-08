@@ -1,3 +1,21 @@
+## 0.6.0-dev.1
+
+> Note: This release has breaking changes.
+
+ - **FIX**: revert broken transitive dependency.
+ - **FIX**: upgrade analyzer dependency.
+ - **BREAKING** **CHORE**: update gql_code_builder, gql_exec and vestigial analyzer pubspec entry.
+
+## 0.5.0-dev.10
+
+> Note: This release has breaking changes.
+
+ - **FIX**: revert broken transitive dependency.
+ - **FIX**: upgrade analyzer dependency.
+ - **CHORE**: publish packages.
+ - **CHORE**: publish packages.
+ - **BREAKING** **CHORE**: update gql_code_builder, gql_exec and vestigial analyzer pubspec entry.
+
 ## 0.5.0-dev.9
 
  - Update a dependency to the latest release.
